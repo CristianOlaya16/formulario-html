@@ -61,16 +61,16 @@
 <body>
   <h1>Formulario de Contacto</h1>
   <form id="formulario">
-    <input type="text" name="DNI" placeholder="DNI" required />
+    <input type="text" name="dni" placeholder="DNI" required />
     <input type="text" name="nombre" placeholder="Nombre" required />
     <input type="text" name="apellido" placeholder="Apellido" required />
     <input type="email" name="correo" placeholder="Correo" required />
-    <input type="telefono" name="telefono" placeholder="Telefono" required />
+    <input type="text" name="telefono" placeholder="Telefono" required />
     <input type="text" name="direccion" placeholder="Dirección" required />
 
     <!-- Lista desplegable -->
     <label for="tipo">Tipo de consulta:</label>
-    <select name="tipo" id="tipo" required>
+    <select name="tipo_de_consulta" id="tipo" required>
       <option value="">Seleccione una opción</option>
       <option value="Falla">Falla</option>
       <option value="Información">Información</option>
@@ -92,7 +92,7 @@
       mensajeDiv.style.display = 'block';
 
       try {
-        const response = await fetch('https://<TU-FUNCTION-APP>.azurewebsites.net/api/formulario', {
+        const response = await fetch('https://prod-62.westeurope.logic.azure.com:443/workflows/aa0bc591953f4c24babef2b4a196e773/triggers/When_a_HTTP_request_is_received/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2FWhen_a_HTTP_request_is_received%2Frun&sv=1.0&sig=aczy-GeL7YxAaXSTp5Qox_In-K5WxyNwJgtyjB9zbX8', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(jsonData)
